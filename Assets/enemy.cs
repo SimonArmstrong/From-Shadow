@@ -39,6 +39,7 @@ public class enemy : Entity {
 				rb.AddForce (-rb.velocity * diff);
 			}
 			lastDamager = damager;
+			GetComponent<AudioSource> ().Play ();
 		}
 	}
 

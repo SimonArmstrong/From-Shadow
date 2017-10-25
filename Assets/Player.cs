@@ -57,13 +57,13 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other){
 		if (other.GetComponent<EnemyDamageComponent> () != null) {
-			iFrameTimer -= Time.deltaTime;
 			Damage (other.GetComponent<EnemyDamageComponent>().dmg);
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		
+		if(iFrameTimer > 0)
+			iFrameTimer -= Time.deltaTime;
 	}
 }

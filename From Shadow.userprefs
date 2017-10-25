@@ -1,16 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FollowCamera.cs">
     <Files>
-      <File FileName="Assets\Scripts\Entity.cs" Line="56" Column="31" />
-      <File FileName="Assets\Scripts\Movement.cs" Line="45" Column="7" />
-      <File FileName="Assets\Scripts\DamageInformation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DamageComponent.cs" Line="1" Column="1" />
-      <File FileName="Assets\enemy.cs" Line="26" Column="34" />
+      <File FileName="Assets\Scripts\Entity.cs" Line="79" Column="47" />
+      <File FileName="Assets\Scripts\Movement.cs" Line="86" Column="52" />
+      <File FileName="Assets\Scripts\DamageInformation.cs" Line="13" Column="23" />
+      <File FileName="Assets\Scripts\DamageComponent.cs" Line="5" Column="1" />
+      <File FileName="Assets\enemy.cs" Line="21" Column="47" />
       <File FileName="Assets\Scripts\TinkerAnimator.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="15" Column="58" />
       <File FileName="Assets\UI_DisplayScore.cs" Line="1" Column="1" />
       <File FileName="Assets\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\ScreenEffect.cs" Line="25" Column="119" />
+      <File FileName="Assets\Coin.cs" Line="15" Column="100" />
+      <File FileName="Assets\SwingComponent.cs" Line="7" Column="25" />
+      <File FileName="Assets\UI_HealthMeter.cs" Line="14" Column="51" />
+      <File FileName="Assets\UI_GhostMeter.cs" Line="19" Column="82" />
+      <File FileName="Assets\Player.cs" Line="38" Column="24" />
+      <File FileName="Assets\EnemyDamageComponent.cs" Line="10" Column="34" />
+      <File FileName="Assets\FollowCamera.cs" Line="30" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
