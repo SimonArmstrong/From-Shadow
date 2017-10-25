@@ -19,8 +19,10 @@ public class FollowCamera : MonoBehaviour {
 		Vector3 desiredPosition = new Vector3(0, 0, -10);
 
 		for (int i = 0; i < toFollow.Length; i++) {
-			desiredPosition.x += toFollow[i].position.x;
-			desiredPosition.y += toFollow [i].position.y;
+			if (toFollow [i] != null) {
+				desiredPosition.x += toFollow [i].position.x;
+				desiredPosition.y += toFollow [i].position.y;
+			}
 		}
 
 		desiredPosition = desiredPosition / toFollow.Length;

@@ -55,12 +55,9 @@
      <Compile Include="Assets\Coin.cs" />
      <Compile Include="Assets\Cursor.cs" />
      <Compile Include="Assets\enemy.cs" />
+     <Compile Include="Assets\EnemyDamageComponent.cs" />
      <Compile Include="Assets\FollowCamera.cs" />
-     <Compile Include="Assets\Pixelation\Example\Scripts\ImageEffectBase.cs" />
-     <Compile Include="Assets\Pixelation\Example\Scripts\Plane.cs" />
-     <Compile Include="Assets\Pixelation\Example\Scripts\PointLight.cs" />
-     <Compile Include="Assets\Pixelation\Scripts\Chunky.cs" />
-     <Compile Include="Assets\Pixelation\Scripts\Pixelation.cs" />
+     <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -123,7 +120,6 @@
      <Compile Include="Assets\UI_GhostMeter.cs" />
      <Compile Include="Assets\UI_HealthMeter.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
-     <None Include="Assets\Pixelation\Readme.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
@@ -143,13 +139,11 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-     <None Include="Assets\Pixelation\Shaders\Chunky.shader" />
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
      <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
-     <None Include="Assets\Pixelation\Shaders\Pixelation.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\TAA.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />

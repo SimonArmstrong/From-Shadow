@@ -22,6 +22,6 @@ public class ScreenEffect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		alpha = Mathf.Lerp(alpha, 0, Time.deltaTime * 20);
-		whiteScreenEffect.color = new Color (1f, 1f, 1f, alpha);
+		whiteScreenEffect.color = new Color (whiteScreenEffect.color.r, whiteScreenEffect.color.g, whiteScreenEffect.color.b, alpha);
 	}
 }

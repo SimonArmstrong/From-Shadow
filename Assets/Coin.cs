@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
 
 	private GameObject player;
+	public int value;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class Coin : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.collider.GetComponent<Movement> () != null) {
-			GameManager.score += 1;
+			GameManager.score += value;
 			Destroy (gameObject);
 		}
 	}

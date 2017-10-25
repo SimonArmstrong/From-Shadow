@@ -76,7 +76,8 @@ public class Entity : TinkerObject {
 		if (drops.Count > 0) {
 			int rng = Random.Range (0, maxCoinDrop);
 			for (int i = 0; i < rng; i++) {
-				Instantiate (drops [0], transform.position, Quaternion.identity);
+				int rng_2 = Random.Range (0, drops.Count);
+				Instantiate (drops [rng_2], transform.position, Quaternion.identity);
 			}
 		}
 

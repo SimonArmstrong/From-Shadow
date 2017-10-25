@@ -16,15 +16,15 @@ public class DamageInformation : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
-		shadText = GetComponent<Text> ();
-		mainText = transform.GetChild(0).GetComponent<Text> ();
+		//shadText = GetComponent<Text> ();
+		mainText = GetComponent<Text> ();
 		initTime = lifeTime;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		mainText.text = damage.ToString ("0");
-		shadText.text = damage.ToString ("0");
+		//shadText.text = damage.ToString ("0");
 
 		lifeTime -= Time.deltaTime;
 
@@ -32,7 +32,7 @@ public class DamageInformation : MonoBehaviour {
 		Color newCol = new Color(f, f/2, 0, 1);
 		Color newShadCol = new Color(0, 0, 0, f);
 		mainText.color = newCol;
-		shadText.color = newShadCol;
+		//shadText.color = newShadCol;
 
 		transform.Translate (Vector2.up * f);
 
