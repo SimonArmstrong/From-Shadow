@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public static Player instance;
+
 	[System.Serializable]
 	public struct Health {
 		private float cur;
@@ -53,6 +55,8 @@ public class Player : MonoBehaviour {
 	void Start () {
 		health = new Health ();
 		health.Init (3);
+
+        instance = this;
 	}
 
 	void OnTriggerStay2D(Collider2D other){

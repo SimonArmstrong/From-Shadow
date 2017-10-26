@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindWithTag ("Player");
+        player = Player.instance.gameObject;
 		GetComponent<BoxCollider2D> ().enabled = false;
 
 		Vector3 randomPosition = new Vector3 (Random.Range (-2.0f, 2.0f), Random.Range (-2.0f, 2.0f), 0);
