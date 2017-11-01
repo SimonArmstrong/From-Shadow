@@ -10,14 +10,17 @@ public enum KnowledgeRating {
 	TRANSCENDENT
 }
 
-public class Item : MonoBehaviour {
+[CreateAssetMenu(fileName="Item")]
+public class Item : ScriptableObject {
 	//
 	// BASIC STATISTICS
 	//
-	public float value { 
-		get; 
-		set;
-	}
+
+	public Sprite sprite;
+	public string name;
+	public string description;
+
+	public float value;
 
 	public KnowledgeRating rarity {
 		get;

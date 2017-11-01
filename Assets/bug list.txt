@@ -1,0 +1,4 @@
+Fix List
+- Coins move to player from Coin.cs
+- Hitbox / Hurtbox seperate
+- Player not Entity
