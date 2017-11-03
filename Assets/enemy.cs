@@ -18,8 +18,8 @@ public class enemy : Entity {
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
-		if(Player.instance != null)
-		target = Player.instance.transform;
+		if(GameObject.FindWithTag ("Player") != null)
+		target = GameObject.FindWithTag ("Player").transform;
 		speedMod = 1;
 		rb = GetComponent<Rigidbody2D> ();
 	}
