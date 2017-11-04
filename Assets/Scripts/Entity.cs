@@ -8,49 +8,77 @@ public class Entity : TinkerObject {
 	public List<SpriteRenderer> otherEntitySprites = new List<SpriteRenderer>();
 	[System.Serializable]
 	public struct Stat{
-		public float cur, max, mod, total;
+		public Buff buff;
+		private float permanentMod;
+		private float cur, mod, total;
+		public float max;
+		public int level;
 
-		public void Modify(float amt){
-			this.mod = amt;
-			max = total * mod;
+		public void Level(){
+			level++;
+			permanentMod += 0.1f;
+		}
+
+		public void Set(float amt){
+			cur = amt;
+			if (cur >= max)
+				cur = max;
+		}
+
+		public void SetMod(float m){
+			mod = m;
+		}
+
+		public void Add(float amt){
+			cur += amt;
+		}
+
+		public float GetTotal(){
+			if(buff != null)
+				total = cur * (1 + (mod + permanentMod)) * buff.amount;
+			else
+				total = cur * (1 + (mod + permanentMod));
+			
+			return total;
+		}
+
+		public void Init(){			
+			cur = max;
 		}
 	}
 	public Stat health;
+	public Stat speed;
+	public Stat defense;
 	public List<GameObject> drops = new List<GameObject>();	
+	public float healthDropChance;
 
-	private GameObject textBoxObject;
+	protected GameObject textBoxObject;
 	private DamageComponent damager;
 
 	public int maxCoinDrop = 3;
+	public int minCoinDrop;
+	public float stunDuration;
 
-	// Flagged when we have deducted damage
-	bool flagStop = false; 
-	float t = 0;
-	public virtual void Damage(GameObject damager, float amt = (1.0F), bool tickOnce = (false)){
+	public Buff[] activeEffects;
 
-		Vector3 screenSpacePosition = Camera.main.WorldToScreenPoint (transform.position);
+	public virtual void Damage(GameObject damager = (null), float amt = (1.0F), bool tickOnce = (false)){
+		float totalDamage = amt - defense.GetTotal ();
+		if (totalDamage <= 0)
+			totalDamage = 0;
+		health.Add (-totalDamage);	// Final Damage Calculation on All Entities
 
-		if (tickOnce) {
-			health.cur -= amt;
-			GameObject dmgInfoInst = Instantiate (textBoxObject, screenSpacePosition, Quaternion.identity) as GameObject;
-			dmgInfoInst.transform.SetParent(GameObject.Find("Canvas").transform);
-			dmgInfoInst.GetComponent<DamageInformation> ().damage = amt;
-
-			//flagStop = true;
-		}
-
-		if (!tickOnce) {
-			/*
-			t -= Time.deltaTime;
-			if (t <= 0) { 
-				health.cur -= amt;
-				t = damager.dmgDelay;
-				Debug.Log (t);
-			}
-			*/
+		if(health.GetTotal() <= 0){			
+			Die ();
 		}
 	}
 
+
+	public bool DetermineChance (float chance){
+		float random = Random.Range (0, 100);
+		// True if your critChance > 0 and if you landed on 100
+		return (chance > 0) && (random <= chance);
+	}
+	/*
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject != gameObject) {
 			if (other.GetComponent<DamageComponent> () != null) {
@@ -65,22 +93,25 @@ public class Entity : TinkerObject {
 			}
 		}
 	}
-
+	*/
 	public void Die(){
+		GameManager.kills++;
 		if (creatureIndex != -1) {
 			//Encyclopedia.Learn (creatureIndex);
 		}
 		// Remove references here
 		//GameManager.score += 10;
-
+		if(DetermineChance(healthDropChance)){
+			Instantiate (GameManager.healthDropItem, transform.position, Quaternion.identity);
+		}
+			
 		if (drops.Count > 0) {
-			int rng = Random.Range (0, maxCoinDrop);
+			int rng = Random.Range (minCoinDrop, maxCoinDrop);
 			for (int i = 0; i < rng; i++) {
 				int rng_2 = Random.Range (0, drops.Count);
 				Instantiate (drops [rng_2], transform.position, Quaternion.identity);
 			}
 		}
-
 		Destroy (gameObject);
 	}
 
@@ -91,24 +122,16 @@ public class Entity : TinkerObject {
 	}
 
 	public virtual void Start(){
+		health.Init ();
+		speed.Init ();
 		textBoxObject = Resources.Load<GameObject> ("Prefabs/DamageInformation");
 	}
 
 	public virtual void Update(){
 		GetComponent<SpriteRenderer> ().sortingOrder = -(int)(transform.position.y * 10) * heightLayer;
+		stunDuration -= Time.deltaTime;
 
-		for (int j = 0; j < otherEntitySprites.Count; j++) {
-			// 
-			/*
-			if(otherEntitySprites[j].gameObject.transform.position.y > gameObject.transform.position.y){
-				GetComponent<SpriteRenderer>().sortingOrder = otherEntitySprites [j].sortingOrder + 1;
-				otherEntitySprites [j].sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
-			}
-			*/
-		}
-
-
-		if (health.cur <= 0) {
+		if (health.GetTotal() <= 0) {
 			Die ();
 		}
 	}

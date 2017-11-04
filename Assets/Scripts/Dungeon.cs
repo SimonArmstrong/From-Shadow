@@ -43,6 +43,7 @@ public class Dungeon : MonoBehaviour {
 		}
 	}
 #endregion
+	public GameObject enemyPrefab;
 
 	public GameObject roomObject;
 	public bool randomizeSeed;
@@ -165,6 +166,13 @@ public class Dungeon : MonoBehaviour {
 		}
 
 		rooms [furthestIndex].isBossRoom = true;
+		/*for (int i = 0; i < 10; i++) {
+			Vector3 randomPosition = new Vector3 (Random.Range (-2.0f, 2.0f), Random.Range (-2.0f, 2.0f), 0);
+			Vector3 spawnRandomPosition = rooms[i].position + randomPosition.normalized * 10;
+
+			Instantiate (enemy, spawnRandomPosition, Quaternion.identity);
+			spawnTimer = spawnRate;
+		}*/
 	}
 
 	// Use this for initialization

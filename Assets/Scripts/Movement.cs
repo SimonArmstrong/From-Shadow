@@ -85,9 +85,8 @@ public class Movement : MonoBehaviour {
 		if (Input.GetButtonDown ("Jump")) {
 			rb.AddForce (ZeroZ (movement.normalized) * 900);
 		}
-
+		comboDeadTimer -= Time.deltaTime;
 		if (comboCount > 0) {
-			comboDeadTimer -= Time.deltaTime;
 			if (comboDeadTimer <= 0) {
 				comboCount = 0;
 				comboDeadTimer = 0.5f;
