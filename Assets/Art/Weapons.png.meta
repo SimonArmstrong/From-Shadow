@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6261a87980485564cb7ac3cd933f8152
-timeCreated: 1509428697
+timeCreated: 1509627428
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,7 @@ TextureImporter:
     21300004: Weapons_2
     21300006: Weapons_3
     21300008: Weapons_4
+    21300010: Weapons_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -65,7 +66,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -74,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,6 +144,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Weapons_5
+      rect:
+        serializedVersion: 2
+        x: 80
         y: 0
         width: 16
         height: 16

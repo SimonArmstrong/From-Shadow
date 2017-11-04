@@ -110,6 +110,11 @@ public class Player : Entity {
 		if (Input.GetButtonDown ("Jump")) {
 			rb.AddForce (ZeroZ (movement.normalized) * 900);
 		}
+
+		if (Input.GetButtonDown ("Cancel")) {
+			Time.timeScale = 0;
+		}
+
 		comboDeadTimer -= Time.deltaTime;
 		if (comboCount > 0) {
 			if (comboDeadTimer <= 0) {
